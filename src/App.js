@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import AllCourses from './components/AllCourses';
+import FullStackCourses from './components/FullStackCourses';
+import DataScienceCourses from './components/DataScienceCourses';
+import CyberSecurityCourses from './components/CyberSecurityCourses';
+import CareerCourses from './components/CareerCourses';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+
+  return (<>
+    <Router>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<AllCourses />} />
+        <Route path="/full-stack" element={<FullStackCourses />} />
+        <Route path="/data-science" element={<DataScienceCourses />} />
+        <Route path="/cyber-security" element={<CyberSecurityCourses />} />
+        <Route path="/career" element={<CareerCourses />} />
+      </Routes>
+    </Router>
+  </>
   );
 }
 
